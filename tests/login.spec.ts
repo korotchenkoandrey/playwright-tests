@@ -23,5 +23,5 @@ test('shows an error for an invalid password', async ({ page }) => {
   await page.getByRole('button', { name: 'Submit' }).click();
 
   await expect(page).toHaveURL(loginUrl);
-  await expect(page.getByText('Your password is invalid!')).toBeVisible();
+  await expect(page.locator('#error')).toHaveText('Your password is invalid!');
 });
